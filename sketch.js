@@ -13,10 +13,16 @@ function draw() {
 
   setGradient(0, 0, width, curHeight, c1, c2, Y_AXIS);
   noStroke();
-  fill(255, 255, 132);
-  for (i = curHeight; i > 0; i = i - 40){
-    for (j = Math.random() * 20; j < width; j += 40){
-      circle(j, i, 5);
+  fill(255);
+  for (i = curHeight; i < height; i += 50){
+    for (j = 0; j < width; j += 50){
+      if (Math.pow(i - 400, 2) + Math.pow(j - 400, 2) > Math.pow((60 + minute()/60 * 700)/2, 2)){
+        if ((i-curHeight)/50 % 2 == 0){
+          circle(j, i, 5);
+        } else {
+          circle(j + 25, i, 5);
+        }
+      }
     }
   }
 
