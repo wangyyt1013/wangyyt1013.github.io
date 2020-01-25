@@ -1,9 +1,16 @@
 const Y_AXIS = 1;
+const STAR_STEP = 50;
+const STAR_SIZE = 3;
+const SUN_DIAM = 50;
 var curMin = 0;
-var i, j;
+var curHeight, shade, i, j;
 
 function setup() {
   createCanvas(800, 800);
+}
+
+function orbit(minute){
+  return 60 + minute/60 * 700;
 }
 
 function draw() {
@@ -12,46 +19,53 @@ function draw() {
     console.log(curMin);
   }
 
+  // setting up global variables
   background(0);
   var c1 = color(132, 225, 255);
   var c2 = color(0, 0, 0)
-  var curHeight = (1 - hour()/24) * height;
+  curHeight = (1 - hour()/24) * height;
+  shade = color(255, 10 + hour() * 10, 0);
 
+  // set background gradient
   setGradient(0, 0, width, curHeight, c1, c2, Y_AXIS);
+
+
   noStroke();
   fill(255);
-  for (i = curHeight; i < height; i += 50){
-    for (j = 0; j < width; j += 50){
+  for (i = curHeight; i < height; i += STAR_STEP){
+    for (j = 0; j < width; j += STAR_STEP){
       if ((i-curHeight)/50 % 2 == 0){
-				if (Math.pow(i - 400, 2) + Math.pow(j - 400, 2) > Math.pow((60 + minute()/60 * 700)/2, 2)){
-          circle(j, i, 3);
+				if (Math.pow(i - height/2, 2) + Math.pow(j - width/2, 2) >
+            Math.pow(orbit(minute())/2, 2)){
+          circle(j, i, STAR_SIZE);
         }
 			} else {
-				if (Math.pow(i - 400, 2) + Math.pow(j + 25 - 400, 2) > Math.pow((60 + minute()/60 * 700)/2, 2)){
-          circle(j + 25, i, 3);
+				if (Math.pow(i - height/2, 2) + Math.pow(j + STAR_STEP/2 - width/2, 2) >
+            Math.pow(orbit(minute())/2, 2)){
+          circle(j + STAR_STEP/2, i, STAR_SIZE);
         }
       }
     }
   }
 
-  translate(400, 400);
+  translate(width/2, height/2);
 
-  var shade = 10 + hour() * 10;
-  fill(255, shade, 0);
-  ellipse(0, 0, 50, 50);
+  // central circle
+  fill(shade);
+  ellipse(0, 0, SUN_DIAM, SUN_DIAM);
 
+  // orbits and stars
   strokeWeight(1);
   for (i = 0; i < minute(); i++){
-    let rad = 60 + i/60 * 700;
     noFill();
     rotate(PI*second()/60);
 
-    stroke(shade, shade, 0);
-    ellipse(0, 0, rad, rad);
+    stroke(shade);
+    ellipse(0, 0, orbit(i), orbit(i));
 
     fill(255);
     stroke(0);
-    circle(0, rad/2, 3);
+    circle(0, orbit(i)/2, STAR_SIZE);
   }
 
 }
