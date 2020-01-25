@@ -1,11 +1,11 @@
 # wangyyt1013.github.io
 ### Basic information
-Author: Yuanyuting Wang
-UNI: yw3241
-Date: 01-24-2020
+Author: Yuanyuting Wang \\
+UNI: yw3241 \\
+Date: 01-24-2020 \\
 
 ### Introduction
-An abstract clock that shows the hour, minute, second in a day while mimicking the operation of a universe that flows and ebbs with time.
+An abstract clock that shows the hour, minute, second in a day while mimicking the operation of a universe that flows and ebbs with time. \\
 Submitted as calibration homework for COMS W4995: Introduction to Data Visualization.
 
 ### Technology

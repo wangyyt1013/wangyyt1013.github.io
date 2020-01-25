@@ -20,7 +20,7 @@ function draw() {
         if ((i-curHeight)/50 % 2 == 0){
           circle(j, i, 5);
         } else {
-          circle(j + 25, i, 5);
+          circle(j + 25, i, 3);
         }
       }
     }
