@@ -43,7 +43,7 @@ function draw() {
 
     fill(255);
     stroke(0);
-    circle(0, rad/2, 5);
+    circle(0, rad/2, 3);
   }
 
 }
