@@ -1,4 +1,5 @@
 const Y_AXIS = 1;
+var curMin = 0;
 var i, j;
 
 function setup() {
@@ -6,6 +7,11 @@ function setup() {
 }
 
 function draw() {
+  if (minute() != curMin){
+    curMin = minute();
+    console.log(curMin);
+  }
+
   background(0);
   var c1 = color(132, 225, 255);
   var c2 = color(0, 0, 0)
