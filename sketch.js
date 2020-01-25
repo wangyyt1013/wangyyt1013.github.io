@@ -18,7 +18,7 @@ function draw() {
     for (j = 0; j < width; j += 50){
       if ((i-curHeight)/50 % 2 == 0){
 				if (Math.pow(i - 400, 2) + Math.pow(j - 400, 2) > Math.pow((60 + minute()/60 * 700)/2, 2)){
-          circle(j, i, 5);
+          circle(j, i, 3);
         }
 			} else {
 				if (Math.pow(i - 400, 2) + Math.pow(j + 25 - 400, 2) > Math.pow((60 + minute()/60 * 700)/2, 2)){
