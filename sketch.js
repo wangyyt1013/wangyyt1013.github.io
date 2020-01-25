@@ -16,10 +16,12 @@ function draw() {
   fill(255);
   for (i = curHeight; i < height; i += 50){
     for (j = 0; j < width; j += 50){
-      if (Math.pow(i - 400, 2) + Math.pow(j - 400, 2) > Math.pow((60 + minute()/60 * 700)/2, 2)){
-        if ((i-curHeight)/50 % 2 == 0){
+      if ((i-curHeight)/50 % 2 == 0){
+				if (Math.pow(i - 400, 2) + Math.pow(j - 400, 2) > Math.pow((60 + minute()/60 * 700)/2, 2)){
           circle(j, i, 5);
-        } else {
+        }
+			} else {
+				if (Math.pow(i - 400, 2) + Math.pow(j + 25 - 400, 2) > Math.pow((60 + minute()/60 * 700)/2, 2)){
           circle(j + 25, i, 3);
         }
       }
