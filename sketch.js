@@ -31,7 +31,7 @@ function draw() {
   translate(400, 400);
 
   var shade = 10 + hour() * 10;
-  fill(shade, shade, 0);
+  fill(255, shade, 0);
   ellipse(0, 0, 50, 50);
 
   strokeWeight(1);
